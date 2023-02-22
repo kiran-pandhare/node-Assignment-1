@@ -1,0 +1,46 @@
+const fs = require('fs/promises')
+
+const myFileWriter = async (fileName, fileContent) => {
+	// write code here
+	// dont chnage function name
+	fs.writeFile(fileName, fileContent, (err) => {
+		if (err)
+			throw err;
+		console.log(`File ${fileName} Created Successfully`);
+	});
+}
+
+const myFileReader = async (fileName) => {
+	// write code here
+	// dont chnage function name
+	fs.readFile(fileName, (err, data) => {
+		if (err)
+			throw err;
+		console.log(`Data from the file ${fileName}: ${data}`);
+	});
+}
+
+
+const myFileUpdater = async (fileName, fileContent) => {
+	// write code here
+	// dont chnage function name
+	fs.appendFile(fileName, fileContent, (err) => {
+		if (err)
+			throw err;
+		console.log(`File ${fileName} updated successfully`);
+	});
+}
+
+const myFileDeleter = async (fileName) => {
+	// write code here
+	// dont chnage function name
+	fs.unlink(fileName, (err) => {
+		if (err)
+			throw err;
+		console.log(`File ${fileName} deleted successfully`);
+	});
+}
+
+
+
+module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
